@@ -9,7 +9,7 @@ import "./App.css";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
 
-const API = "http://127.0.0.1:8000";
+const API = "https://phantom-resilience-api.onrender.com/";
 
 function getRiskColor(level) {
   if (level === "SAFE")     return "var(--safe)";
