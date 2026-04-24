@@ -1,0 +1,5 @@
+backend/venv/
+frontend/phantom-dashboard/node_modules/
+__pycache__/
+*.pyc
+.env
