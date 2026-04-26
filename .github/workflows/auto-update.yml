@@ -1,0 +1,52 @@
+name: Auto Update Phantom Resilience Data
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs at midnight on the 1st of every month
+  workflow_dispatch:       # Allows manual trigger from GitHub dashboard
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+      - name: Run data collection
+        run: |
+          cd backend
+          python pipeline/collect_worldbank.py
+
+      - name: Run data cleaning
+        run: |
+          cd backend
+          python pipeline/clean_data.py
+
+      - name: Retrain AI model
+        run: |
+          cd backend
+          python models/fragility_model.py
+
+      - name: Commit and push updated files
+        run: |
+          git config --global user.email "phantom-bot@github.com"
+          git config --global user.name "Phantom Bot"
+          git add backend/data/raw/worldbank_data.csv
+          git add backend/data/raw/cleaned_data.csv
+          git add backend/models/fragility_model.pkl
+          git add backend/models/scaler.pkl
+          git diff --staged --quiet || git commit -m "Auto update: $(date '+%Y-%m-%d') data refresh"
+          git push
