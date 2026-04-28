@@ -43,9 +43,10 @@ INDICATORS = {
 YEARS_BACK = 10
 
 # Fragility score thresholds
-SCORE_SAFE    = 30
-SCORE_WATCH   = 60
-SCORE_DANGER  = 80
+SCORE_STABLE   = 20
+SCORE_WATCH    = 40
+SCORE_ELEVATED = 60
+SCORE_DANGER   = 80
 
 # Folder paths
 RAW_DATA_PATH = "data/raw"
