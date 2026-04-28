@@ -169,7 +169,6 @@ function TrendChart({ country }) {
   const years        = trends.map(r => r.year);
   const unemployment = trends.map(r => r.unemployment_rate || 0);
   const enrollment   = trends.map(r => r.school_enrollment || 0);
-  const gdp          = trends.map(r => r.gdp_per_capita || 0);
 
   const opts = {
     responsive: true,
