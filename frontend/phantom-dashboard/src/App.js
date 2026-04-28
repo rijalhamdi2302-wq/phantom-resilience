@@ -34,8 +34,8 @@ const COUNTRY_FLAGS = {
 const RISK_CONFIG = {
   STABLE:   { color: "#3fb950", bg: "rgba(63,185,80,0.08)",   bar: "#3fb950", label: "Stable"   },
   WATCH:    { color: "#2dd4bf", bg: "rgba(45,212,191,0.08)",  bar: "#2dd4bf", label: "Watch"    },
-  ELEVATED: { color: "#d29922", bg: "rgba(210,153,34,0.08)",  bar: "#d29922", label: "Elevated" },
-  DANGER:   { color: "#f07030", bg: "rgba(240,112,48,0.08)",  bar: "#f07030", label: "Danger"   },
+  ELEVATED: { color: "#f7f447", bg: "rgba(210,153,34,0.08)",  bar: "#d29922", label: "Elevated" },
+  DANGER:   { color: "#d18e12", bg: "rgba(240,112,48,0.08)",  bar: "#f07030", label: "Danger"   },
   CRITICAL: { color: "#f85149", bg: "rgba(248,81,73,0.08)",   bar: "#f85149", label: "Critical" },
 };
 
